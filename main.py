@@ -139,7 +139,7 @@ while True:
                 # get the image from the firebase database storage
                 bucket = storage.bucket()
                 blob = bucket.get_blob(f"images/{id}.png")
-                array = np.frombuffer(blob.download_as_string(), np.uint8)
+                array = np.frombuffer(blob.download_as_string(), dtype=np.uint8)
                 imgStudent = cv2.imdecode(array, cv2.COLOR_BGRA2BGR)
 
                 # uPDATE total attendance meaning as long as i am captured the total attendance increments with 1
